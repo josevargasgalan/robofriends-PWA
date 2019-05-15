@@ -1,5 +1,8 @@
 jobs:
   bobby:
+    branches:
+      only:
+        - master
     docker:
       - image: circleci/ruby:2.4.1-jessie
     steps:
@@ -9,6 +12,9 @@ jobs:
           bundle exec rspec spec
           bundle exec cucumber
   sally:
+    branches:
+      only:
+        - master
     docker:
       - image: circleci/ruby:2.4.1-jessie
     steps:
