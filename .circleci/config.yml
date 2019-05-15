@@ -24,9 +24,9 @@ jobs:
           bundle exec rspec spec
           bundle exec cucumber
           echo "Double trouble"
-  workflows: 
-    version: 2
-    bobby_sally:
-      jobs: 
-        - bobby
-        - sally
+workflows: 
+  version: 2
+  bobby_sally:
+    jobs: 
+      - bobby
+      - sally
