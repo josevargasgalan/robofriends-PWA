@@ -15,12 +15,12 @@ workflows:
   version: 2
   bobby_sally:
     jobs: 
-      - bobby
+      - bobby:
           filters: 
             branches:
               only:
                 - master
-      - sally
+      - sally:
           filters: 
             branches:
               only:
