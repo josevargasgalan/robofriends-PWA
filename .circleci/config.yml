@@ -1,17 +1,11 @@
 jobs:
   bobby:
-    branches:
-      only:
-        - master
     docker:
       - image: circleci/ruby:2.4.1-jessie
     steps:
       - run: 
           echo "A first hello"
   sally:
-    branches:
-      only:
-        - master
     docker:
       - image: circleci/ruby:2.4.1-jessie
     steps:
@@ -22,4 +16,12 @@ workflows:
   bobby_sally:
     jobs: 
       - bobby
+          filters: 
+            branches:
+              only:
+                - master
       - sally
+          filters: 
+            branches:
+              only:
+                - master
