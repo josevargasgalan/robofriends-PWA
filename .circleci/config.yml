@@ -1,0 +1,26 @@
+jobs:
+  bobby:
+    docker:
+      - image: circleci/ruby:2.4.1-jessie
+    steps:
+      - run: |
+          bundle install
+          bundle exec rake db:schema:load
+          bundle exec rspec spec
+          bundle exec cucumber
+  sally:
+    docker:
+      - image: circleci/ruby:2.4.1-jessie
+    steps:
+      - run: |
+          bundle install
+          bundle exec rake db:schema:load
+          bundle exec rspec spec
+          bundle exec cucumber
+          echo "Double trouble"
+  workflows: 
+    version: 2
+    bobby_sally:
+      jobs: 
+        - bobby
+        - sally
